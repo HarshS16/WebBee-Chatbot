@@ -29,10 +29,11 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # ── Configuration ──────────────────────────────────────────────────
-ALLOWED_ORIGINS = os.getenv(
-    "ALLOWED_ORIGINS",
-    "http://localhost:5173,http://localhost:3000,https://web-bee-chatbot.vercel.app"
-).split(",")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+# Force-append default origins to prevent CORS preflight blocks if env var is misconfigured
+for origin in ["http://localhost:5173", "http://localhost:3000", "https://web-bee-chatbot.vercel.app"]:
+    if origin not in ALLOWED_ORIGINS:
+        ALLOWED_ORIGINS.append(origin)
 MAX_REQUESTS_PER_MINUTE = int(os.getenv("MAX_REQUESTS_PER_MINUTE", 5))
 ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "")
 

@@ -19,7 +19,10 @@ logger = logging.getLogger(__name__)
 # ── Configuration ──────────────────────────────────────────────────
 # Resolve the local model folder (backend/model) relative to this file
 DEFAULT_MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model"))
-MODEL_NAME = os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL_PATH)
+if os.path.exists(DEFAULT_MODEL_PATH):
+    MODEL_NAME = os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL_PATH)
+else:
+    MODEL_NAME = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 BATCH_SIZE = 64
 
 
