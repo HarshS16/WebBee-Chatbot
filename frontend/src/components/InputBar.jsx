@@ -47,11 +47,11 @@ export default function InputBar({ onSend, isLoading }) {
   };
 
   return (
-    <div className="p-4 border-t border-white/[0.06]">
+    <div className="p-4 border-t border-surface-200/60">
       <div className="max-w-3xl mx-auto">
         <div className={`
           flex items-end gap-2 glass-card p-2 transition-all duration-200
-          ${text.trim() ? 'border-brand-500/30 glow-brand' : ''}
+          ${text.trim() ? 'border-brand-500/40 glow-brand' : ''}
         `}>
           {/* Textarea */}
           <textarea
@@ -64,7 +64,7 @@ export default function InputBar({ onSend, isLoading }) {
             disabled={isLoading}
             rows={1}
             className="
-              flex-1 bg-transparent text-white/90 text-sm placeholder-surface-500
+              flex-1 bg-transparent text-surface-900 text-sm placeholder-surface-400
               resize-none outline-none border-none px-3 py-2
               disabled:opacity-50 disabled:cursor-not-allowed
               leading-relaxed
@@ -81,7 +81,7 @@ export default function InputBar({ onSend, isLoading }) {
               transition-all duration-200
               ${text.trim() && !isLoading
                 ? 'bg-gradient-to-r from-brand-600 to-brand-500 text-white shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:scale-105 active:scale-95'
-                : 'bg-surface-800 text-surface-600 cursor-not-allowed'
+                : 'bg-surface-200/80 text-surface-400 cursor-not-allowed'
               }
             `}
           >
@@ -100,7 +100,7 @@ export default function InputBar({ onSend, isLoading }) {
 
         {/* Footer hints */}
         <div className="flex items-center justify-between mt-1.5 px-1">
-          <p className="text-[10px] text-surface-600">
+          <p className="text-[10px] text-surface-500">
             Press Enter to send · Shift+Enter for new line
           </p>
           {text.length > MAX_LENGTH * 0.8 && (

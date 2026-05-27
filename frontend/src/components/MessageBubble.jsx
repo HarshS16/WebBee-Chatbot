@@ -66,7 +66,7 @@ export default function MessageBubble({ message }) {
               ? 'text-white'
               : isError
               ? 'text-red-200/90'
-              : 'text-surface-200 markdown-content'
+              : 'text-surface-850 markdown-content'
           }`}>
             {isUser ? (
               message.content
@@ -80,7 +80,7 @@ export default function MessageBubble({ message }) {
         {!isUser && message.sources?.length > 0 && (
           <div className="relative mt-2 inline-block">
             <button
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-lg text-surface-400 hover:text-white bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.05] hover:border-white/[0.1] transition-all duration-200"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-lg text-surface-600 hover:text-brand-650 bg-surface-100/70 hover:bg-surface-100 border border-surface-200/80 hover:border-brand-500/20 transition-all duration-200"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               id={`sources-btn-${message.id}`}
@@ -93,12 +93,12 @@ export default function MessageBubble({ message }) {
 
             {showSources && (
               <div
-                className="absolute bottom-full left-0 mb-2 w-72 sm:w-96 max-h-72 overflow-y-auto z-50 rounded-2xl bg-surface-950/95 backdrop-blur-xl border border-white/[0.12] shadow-2xl p-2.5 space-y-2 animate-fade-in"
+                className="absolute bottom-full left-0 mb-2 w-72 sm:w-96 max-h-72 overflow-y-auto z-50 rounded-2xl bg-white/95 backdrop-blur-xl border border-surface-200 shadow-xl p-2.5 space-y-2 animate-fade-in"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 id={`sources-popup-${message.id}`}
               >
-                <div className="text-[10px] font-semibold text-surface-400 tracking-wider pb-1.5 border-b border-white/[0.06] flex items-center justify-between px-1">
+                <div className="text-[10px] font-semibold text-surface-500 tracking-wider pb-1.5 border-b border-surface-100 flex items-center justify-between px-1">
                   <span>CITED SOURCES ({message.sources.length})</span>
                 </div>
                 <div className="space-y-1.5 pt-0.5">

@@ -31,25 +31,23 @@ export default function ChatWindow() {
   return (
     <div className="flex flex-col h-screen max-h-screen">
       {/* ── Header ──────────────────────────────────────────── */}
-      <header className="flex-shrink-0 px-4 py-3 border-b border-white/[0.06] bg-surface-950/80 backdrop-blur-xl z-10">
+      <header className="flex-shrink-0 px-4 py-3 border-b border-surface-200/60 bg-surface-50/80 backdrop-blur-xl z-10">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Logo */}
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-              </svg>
+            <div className="w-10 h-10 rounded-xl bg-white overflow-hidden flex items-center justify-center border border-surface-200 shadow-sm">
+              <img src="/webbee-logo.png" alt="WebBee Logo" className="w-full h-full object-cover" />
             </div>
 
             <div>
-              <h1 className="text-sm font-semibold text-white flex items-center gap-2">
+              <h1 className="text-sm font-bold text-surface-900 flex items-center gap-2">
                 WebBee Assistant
-                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 text-[10px] font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 text-[10px] font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   Online
                 </span>
               </h1>
-              <p className="text-[11px] text-surface-500">
+              <p className="text-[11px] text-surface-600">
                 Powered by RAG · Answers from webbeeglobal.com
               </p>
             </div>
@@ -60,7 +58,7 @@ export default function ChatWindow() {
             <button
               id="clear-chat-button"
               onClick={clearChat}
-              className="text-xs text-surface-500 hover:text-surface-300 transition-colors flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-white/[0.04]"
+              className="text-xs text-surface-600 hover:text-brand-600 transition-colors flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-surface-100"
               title="Clear chat"
             >
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -82,20 +80,18 @@ export default function ChatWindow() {
           {/* Welcome state */}
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center min-h-[50vh] animate-fade-in">
-              {/* Hero */}
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-xl shadow-brand-500/25 mb-5">
-                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                </svg>
+              {/* Hero Logo */}
+              <div className="w-20 h-20 rounded-2xl bg-white overflow-hidden flex items-center justify-center shadow-md shadow-brand-500/10 border border-surface-200 mb-5 animate-bounce-in">
+                <img src="/webbee.jpg" alt="WebBee Logo" className="w-full h-full object-cover" />
               </div>
 
-              <h2 className="text-xl font-bold gradient-text mb-2">
+              <h2 className="text-xl font-extrabold gradient-text mb-2 tracking-tight">
                 WebBee Assistant
               </h2>
-              <p className="text-surface-400 text-sm text-center max-w-md mb-8 leading-relaxed">
-                Ask me anything about WebBee Global — integrations, features, pricing, and more. 
+              <p className="text-surface-600 text-sm text-center max-w-md mb-8 leading-relaxed">
+                Ask me anything about WebBee Global — integrations, features, pricing, and more.
                 All answers are sourced directly from{' '}
-                <a href="https://www.webbeeglobal.com" target="_blank" rel="noopener noreferrer" className="text-brand-400 hover:text-brand-300 transition-colors">
+                <a href="https://www.webbeeglobal.com" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:text-brand-700 font-medium underline underline-offset-2 transition-colors">
                   webbeeglobal.com
                 </a>
               </p>
@@ -107,7 +103,7 @@ export default function ChatWindow() {
                     key={idx}
                     id={`suggested-question-${idx}`}
                     onClick={() => send(q)}
-                    className="glass-card-hover p-3 text-left text-sm text-surface-300 hover:text-white transition-colors"
+                    className="glass-card-hover p-3 text-left text-sm text-surface-700 hover:text-brand-600 transition-colors font-medium"
                   >
                     <div className="flex items-center gap-2">
                       <svg className="w-3.5 h-3.5 text-brand-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
