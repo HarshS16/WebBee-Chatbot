@@ -42,6 +42,8 @@ class ChatResponse(BaseModel):
 
 class HealthResponse(BaseModel):
     """Response body for GET /api/health."""
+    model_config = {'protected_namespaces': ()}
+
     status: str = "ok"
     chunks_in_db: int = 0
     model_loaded: bool = False
