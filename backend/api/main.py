@@ -91,6 +91,18 @@ from api.routers.chat import router as chat_router
 app.include_router(chat_router)
 
 
+@app.on_event("startup")
+async def startup_event():
+    """Pre-load the embedding model on application startup."""
+    logger.info("Pre-loading sentence-transformers model during startup...")
+    try:
+        from ingestion.embedder import get_model
+        get_model()
+        logger.info("Sentence-transformers model pre-loaded successfully!")
+    except Exception as e:
+        logger.error(f"Failed to pre-load embedding model: {e}")
+
+
 # ── Health endpoint ────────────────────────────────────────────────
 @app.get("/api/health")
 async def health():
