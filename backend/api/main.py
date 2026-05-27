@@ -93,14 +93,20 @@ app.include_router(chat_router)
 
 @app.on_event("startup")
 async def startup_event():
-    """Pre-load the embedding model on application startup."""
-    logger.info("Pre-loading sentence-transformers model during startup...")
-    try:
-        from ingestion.embedder import get_model
-        get_model()
-        logger.info("Sentence-transformers model pre-loaded successfully!")
-    except Exception as e:
-        logger.error(f"Failed to pre-load embedding model: {e}")
+    """Pre-load the embedding model on application startup in the background."""
+    logger.info("Scheduling sentence-transformers model pre-loading in the background...")
+    
+    def preload():
+        try:
+            from ingestion.embedder import get_model
+            get_model()
+            logger.info("Sentence-transformers model pre-loaded successfully in background!")
+        except Exception as e:
+            logger.error(f"Failed to pre-load embedding model in background: {e}")
+
+    # Run model loading in a background thread so FastAPI startup completes instantly,
+    # allowing uvicorn to bind to the port immediately and pass Render's port check.
+    asyncio.create_task(asyncio.to_thread(preload))
 
 
 # ── Health endpoint ────────────────────────────────────────────────
