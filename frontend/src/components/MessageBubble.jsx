@@ -80,7 +80,7 @@ export default function MessageBubble({ message }) {
         {!isUser && message.sources?.length > 0 && (
           <div className="relative mt-2 inline-block">
             <button
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-lg text-surface-600 hover:text-brand-650 bg-surface-100/70 hover:bg-surface-100 border border-surface-200/80 hover:border-brand-500/20 transition-all duration-200"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-medium rounded-lg text-surface-600 hover:text-brand-600 bg-surface-100/70 hover:bg-surface-100 border border-surface-200/80 hover:border-brand-500/20 transition-all duration-200"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               id={`sources-btn-${message.id}`}

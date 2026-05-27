@@ -62,15 +62,15 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-amber-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-cyan-500 bg-clip-text text-transparent;
   }
 
   .glow-brand {
-    box-shadow: 0 0 20px rgba(195, 72, 70, 0.08), 0 0 40px rgba(195, 72, 70, 0.04);
+    box-shadow: 0 0 20px rgba(47, 114, 255, 0.08), 0 0 40px rgba(47, 114, 255, 0.04);
   }
 
   .input-glow:focus {
-    box-shadow: 0 0 0 2px rgba(195, 72, 70, 0.15), 0 0 20px rgba(195, 72, 70, 0.08);
+    box-shadow: 0 0 0 2px rgba(47, 114, 255, 0.15), 0 0 20px rgba(47, 114, 255, 0.08);
   }
 }
 

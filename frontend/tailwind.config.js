@@ -8,17 +8,17 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#fdf3f2',
-          100: '#fbe5e3',
-          200: '#f7ceca',
-          300: '#efa8a2',
-          400: '#e27b73',
-          500: '#c34846', // Primary Terracotta Red from webbeeglobal.com
-          600: '#aa3735',
-          700: '#8a2c2a',
-          800: '#6f2624',
-          900: '#5d2221',
-          950: '#330f0f',
+          50: '#eef5ff',
+          100: '#d9e8ff',
+          200: '#bbd6ff',
+          300: '#8cbdff',
+          400: '#5699ff',
+          500: '#2f72ff',
+          600: '#1a54f5',
+          700: '#1340e1',
+          800: '#1634b6',
+          900: '#18308f',
+          950: '#141f57',
         },
         surface: {
           50: '#faf8f7', // Warm off-white / light sand
