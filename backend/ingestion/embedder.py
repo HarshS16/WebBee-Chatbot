@@ -17,7 +17,9 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 # ── Configuration ──────────────────────────────────────────────────
-MODEL_NAME = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+# Resolve the local model folder (backend/model) relative to this file
+DEFAULT_MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model"))
+MODEL_NAME = os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL_PATH)
 BATCH_SIZE = 64
 
 
